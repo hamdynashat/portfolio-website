@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamdy Nashat - Flutter Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Hamdy Nashat</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#what-i-do" class="nav-link">Services</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-menu-container">
+                <button class="theme-btn" id="theme-menu-toggle">
+                    <i class="fas fa-palette"></i>
+                </button>
+                <div class="theme-menu" id="theme-menu">
+                    <div class="theme-menu-header">
+                        <h3>Customize Theme</h3>
+                        <button class="close-menu" id="close-theme-menu">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="theme-options">
+                        <div class="theme-section">
+                            <h4>Color Scheme</h4>
+                            <div class="theme-colors">
+                                <button class="color-option light" data-theme="light" title="Classic Light Theme">
+                                    <div class="color-preview">
+                                        <span class="color-bg" style="background: #fff"></span>
+                                        <span class="color-accent" style="background: #8B4513"></span>
+                                    </div>
+                                    <span>Classic</span>
+                                </button>
+                                <button class="color-option dark" data-theme="dark" title="Midnight Blue Theme">
+                                    <div class="color-preview">
+                                        <span class="color-bg" style="background: #1a1f23"></span>
+                                        <span class="color-accent" style="background: #00d4ff"></span>
+                                    </div>
+                                    <span>Midnight</span>
+                                </button>
+                                <button class="color-option purple" data-theme="purple" title="Royal Purple Theme">
+                                    <div class="color-preview">
+                                        <span class="color-bg" style="background: #1a0d2e"></span>
+                                        <span class="color-accent" style="background: #9d4edd"></span>
+                                    </div>
+                                    <span>Royal</span>
+                                </button>
+                                <button class="color-option green" data-theme="green" title="Matrix Green Theme">
+                                    <div class="color-preview">
+                                        <span class="color-bg" style="background: #0d1b2a"></span>
+                                        <span class="color-accent" style="background: #00f5a0"></span>
+                                    </div>
+                                    <span>Matrix</span>
+                                </button>
+                                <button class="color-option orange" data-theme="orange" title="Sunset Orange Theme">
+                                    <div class="color-preview">
+                                        <span class="color-bg" style="background: #2d1b0e"></span>
+                                        <span class="color-accent" style="background: #ff6b35"></span>
+                                    </div>
+                                    <span>Sunset</span>
+                                </button>
+                                <button class="color-option pink" data-theme="pink" title="Neon Pink Theme">
+                                    <div class="color-preview">
+                                        <span class="color-bg" style="background: #1f0a1f"></span>
+                                        <span class="color-accent" style="background: #ff0080"></span>
+                                    </div>
+                                    <span>Neon</span>
+                                </button>
+                                <button class="color-option gold" data-theme="gold" title="Luxury Gold Theme">
+                                    <div class="color-preview">
+                                        <span class="color-bg" style="background: #1a1611"></span>
+                                        <span class="color-accent" style="background: #ffd700"></span>
+                                    </div>
+                                    <span>Luxury</span>
+                                </button>
+                                <button class="color-option ocean" data-theme="ocean" title="Ocean Blue Theme">
+                                    <div class="color-preview">
+                                        <span class="color-bg" style="background: #0a1a2a"></span>
+                                        <span class="color-accent" style="background: #00bfff"></span>
+                                    </div>
+                                    <span>Ocean</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="theme-section">
+                            <h4>Floating Icons</h4>
+                            <div class="toggle-option">
+                                <label class="switch">
+                                    <input type="checkbox" id="floating-icons-toggle" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Show floating icons</span>
+                            </div>
+                        </div>
+                        <div class="theme-section">
+                            <h4>Animations</h4>
+                            <div class="toggle-option">
+                                <label class="switch">
+                                    <input type="checkbox" id="animations-toggle" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Enable animations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Hamdy Nashat</span>
+                </h1>
+                <h2 class="hero-subtitle">Flutter Developer</h2>
+                <p class="hero-description">
+                    Computer Science student passionate about creating innovative mobile applications and digital experiences that inspire and add value to people's lives.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="https://i.postimg.cc/4dxPd7Rt/5846131560456242344.jpg" alt="Hamdy Nashat" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="profile-placeholder" style="display: none;">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h3>Hamdy Nashat</h3>
+                        <p>Flutter Developer</p>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/in/hamdynashat" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/hamdynashat" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="https://drive.google.com/file/d/1giKLc8FVS82rBkP1zaCzaFLcj4B8k2Y3/view?usp=sharing" target="_blank" class="social-link"><i class="fas fa-file-pdf"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        From a young age, I've always been fascinated by technology and creativity. Whether it was exploring how things work or imagining new ideas, I found joy in blending logic with imagination. That early passion became the foundation of my journey.
+                    </p>
+                    <p>
+                        When I joined the Faculty of Computers & Informatics at Tanta University, I finally had the chance to turn this curiosity into a real career path. As a student, I was eager to push beyond theory and start creating. That's when I discovered Flutter, and it completely transformed the way I looked at software development.
+                    </p>
+                    <p>
+                        What started as experimentation during my second year quickly grew into a deep interest in cross-platform mobile apps—a way to bring ideas to life and share them with the world. Alongside Flutter and Dart, I built skills in UI/UX design, databases, Git/GitHub, testing, and deployment, constantly seeking new challenges to grow.
+                    </p>
+                    <p>
+                        Beyond coding, I express my creative side through content creation, photography, and storytelling. My vision is clear: to become a recognized programmer and digital creator who inspires, entertains, and adds value to people's lives through technology.
+                    </p>
+                    <div class="resume-download">
+                        <a href="https://drive.google.com/file/d/1giKLc8FVS82rBkP1zaCzaFLcj4B8k2Y3/view?usp=sharing" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <img src="https://i.postimg.cc/4dxPd7Rt/5846131560456242344.jpg" alt="Hamdy Nashat" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-icon" style="display: none;">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section id="what-i-do" class="what-i-do">
+        <div class="container">
+            <h2 class="section-title">What I Do</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Cross-Platform Mobile Apps</h3>
+                    <p>Build high-quality apps for Android & iOS using Flutter & Dart.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Implementation</h3>
+                    <p>Translate prototypes into smooth, user-friendly mobile interfaces.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Clean Code & Architecture</h3>
+                    <p>Apply OOP principles and best practices for scalable apps.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Integration</h3>
+                    <p>Design, model, and connect apps to SQL databases for real-world functionality.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Problem Solving</h3>
+                    <p>Optimize performance using data structures & algorithms.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h3>Version Control</h3>
+                    <p>Collaborate on projects with Git & GitHub.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Mobile Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-android"></i>
+                            <span>Flutter & Dart</span>
+                            <p>Cross-platform apps, state management, clean architecture</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>Object-Oriented Programming (OOP)</span>
+                            <p>Modular and scalable code design</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Data Structures & Algorithms</span>
+                            <p>Efficient coding and optimization</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Version Control</span>
+                            <p>Git & GitHub collaboration</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL & ERD Modeling</span>
+                            <p>Relational database design and query handling</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Prototyping & Wireframing</span>
+                            <p>User-focused mobile interfaces</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Problem-Solving & Analytical Thinking</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Creativity & Innovation</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-users"></i>
+                            <span>Teamwork & Collaboration</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-crown"></i>
+                            <span>Leadership & Responsibility</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-flag"></i>
+                            <span>Arabic - Native</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-flag"></i>
+                            <span>English - C1 Certified</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-flag"></i>
+                            <span>French - Basic Understanding</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tasabee7 App</h3>
+                        <p>Tasabee7 – Digital Dhikr & Achievement Tracker. A mobile application designed to help users practice daily dhikr (remembrance of Allah) in an organized and engaging way.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Mobile App</span>
+                            <span class="tech-tag">Productivity</span>
+                            <span class="tech-tag">Spirituality</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://drive.google.com/file/d/1-H_8MG-pJ1qkN4N8D_C84cX5gi7TEG4-/view?usp=drive_link" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>FlexiFair</h3>
+                        <p>Research on a scheduling tool that optimizes CPU resource allocation efficiently.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Research</span>
+                            <span class="tech-tag">CPU Scheduling</span>
+                            <span class="tech-tag">Algorithm Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://drive.google.com/file/d/1YgpVWMBPvcxUEw84jKG4hH77_FFtojfH/view?usp=sharing" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Counter App</h3>
+                        <p>A user-friendly app built with Flutter for tracking counts easily.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Mobile Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://drive.google.com/file/d/1pG5zlPv2MkUEGEJGJHQv4PSMBQ4me1DC/view" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Social Media App (Login & Home)</h3>
+                        <p>Login & Home screens for a social media application with modern UI design.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">UI/UX</span>
+                            <span class="tech-tag">Mobile Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://drive.google.com/file/d/1pG5zlPv2MkUEGEJGJHQv4PSMBQ4me1DC/view" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tutoring System UI</h3>
+                        <p>A desktop UI prototype designed to enhance tutoring experience and management.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">UI/UX Design</span>
+                            <span class="tech-tag">Desktop</span>
+                            <span class="tech-tag">Prototyping</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.linkedin.com/posts/hamdynashat_so-happy-to-share-my-first-post-on-linkedin-activity-7276575799871172608-aj2c/" target="_blank" class="project-link"><i class="fab fa-linkedin"></i> View on LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cart Simulation App</h3>
+                        <p>E-commerce cart simulation with interactive features and smooth user experience.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">E-commerce</span>
+                            <span class="tech-tag">Simulation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://drive.google.com/file/d/1DHORAQmHBUIkb5JV5hMUkUoeu0UqkCvn/view" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Background Gallery App</h3>
+                        <p>A simple app with three screens showing smooth navigation and background gallery functionality.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Mobile Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://drive.google.com/file/d/1X3mujMboE8j4jeE0hORXuM6QZKEB3jw2/view?usp=sharing" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Education</h2>
+            <div class="experience-content">
+                <div class="experience-section">
+                    <h3>Experience</h3>
+                    <div class="experience-items">
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4>Freelancing</h4>
+                                <p>Gained valuable experience through projects on Upwork.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4>DEPI Program</h4>
+                                <p>Enhanced skills and knowledge through this enriching program.</p>
+                            </div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4>Seminars</h4>
+                                <p>Attended seminars focused on Communication and AI advancements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="education-section">
+                    <h3>Education & Certifications</h3>
+                    <div class="education-items">
+                        <div class="education-item">
+                            <div class="education-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="education-content">
+                                <h4>Bachelor of Computers and Information</h4>
+                                <p class="institution">Tanta University</p>
+                                <p class="duration">October 2023 – July 2027</p>
+                                <p class="gpa">GPA: 3.5/4.0</p>
+                            </div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="education-content">
+                                <h4>Digital Egypt Pioneers Initiative (DEPI)</h4>
+                                <p class="institution">Software Development – Cross Platform</p>
+                                <p class="duration">June 2025 – Dec 2025</p>
+                                <p class="track">Mobile App Developer Track</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="certifications-section">
+                    <h3>Certifications</h3>
+                    <div class="certifications-grid">
+                        <div class="cert-item">
+                            <i class="fas fa-robot"></i>
+                            <h4>Gen AI Certificate</h4>
+                            <p>Zero to Generative AI Application Development Mastery - Udemy</p>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fab fa-cuttlefish"></i>
+                            <h4>C++ Certificate</h4>
+                            <p>The C++ Learning Guide - Udemy</p>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-crown"></i>
+                            <h4>Leadership Certificate</h4>
+                            <p>How to Become a Thought Leader in Your Industry - Udemy</p>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-code"></i>
+                            <h4>Dart Certificate</h4>
+                            <p>The Complete Dart Learning Guide - Udemy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="upcoming-certifications-section">
+                    <h3>Upcoming Certifications</h3>
+                    <div class="upcoming-certs-grid">
+                        <div class="upcoming-cert-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>The Complete Flutter & Dart</h4>
+                            <p>Basics to Advanced [Arabic] - Udemy</p>
+                            <span class="status-badge">In Progress</span>
+                        </div>
+                        <div class="upcoming-cert-item">
+                            <i class="fas fa-brain"></i>
+                            <h4>AI for Work Mastery</h4>
+                            <p>Introduction to AI Essentials - Udemy</p>
+                            <span class="status-badge">Planned</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's work together!</h3>
+                    <p>I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and innovation.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hamdynashat125@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+20 1010654317</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Giza, Egypt</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/hamdynashat" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/hamdynashat" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://drive.google.com/file/d/1giKLc8FVS82rBkP1zaCzaFLcj4B8k2Y3/view?usp=sharing" target="_blank" class="social-link"><i class="fas fa-file-pdf"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Hamdy Nashat</h3>
+                    <p>Flutter Developer & Mobile App Specialist</p>
+                </div>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:hamdynashat125@gmail.com">hamdynashat125@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+201010654317">+20 1010654317</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Giza, Egypt</span>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/hamdynashat" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/hamdynashat" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hamdy Nashat. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Portfolio Icons -->
+    <div class="floating-icons">
+        <div class="floating-icon flutter-icon" data-tooltip="Flutter">
+            <i class="fab fa-flutter"></i>
+        </div>
+        <div class="floating-icon dart-icon" data-tooltip="Dart">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="floating-icon mobile-icon" data-tooltip="Mobile Development">
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="floating-icon firebase-icon" data-tooltip="Firebase">
+            <i class="fas fa-fire"></i>
+        </div>
+        <div class="floating-icon git-icon" data-tooltip="Git & GitHub">
+            <i class="fab fa-git-alt"></i>
+        </div>
+        <div class="floating-icon android-icon" data-tooltip="Android">
+            <i class="fab fa-android"></i>
+        </div>
+        <div class="floating-icon ios-icon" data-tooltip="iOS">
+            <i class="fab fa-apple"></i>
+        </div>
+        <div class="floating-icon database-icon" data-tooltip="Database">
+            <i class="fas fa-database"></i>
+        </div>
+        <div class="floating-icon api-icon" data-tooltip="API Integration">
+            <i class="fas fa-plug"></i>
+        </div>
+        <div class="floating-icon ui-icon" data-tooltip="UI/UX Design">
+            <i class="fas fa-paint-brush"></i>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
