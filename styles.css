@@ -783,6 +783,25 @@ section:not(:first-child) {
     align-items: center;
 }
 
+/* Desktop: Resume button stays with text */
+@media (min-width: 769px) {
+    .about-text {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .about-image {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .resume-download {
+        grid-column: 1;
+        grid-row: 2;
+        margin-top: 2rem;
+    }
+}
+
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
@@ -1584,11 +1603,37 @@ section:not(:first-child) {
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .about-image {
+        order: 1;
+    }
+    
+    .resume-download {
+        order: 2;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    
+    .about-text {
+        order: 3;
     }
 
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        text-align: center;
+    }
+    
+    .contact-info h3 {
+        text-align: center;
+    }
+    
+    .contact-info p {
+        text-align: center;
     }
 
     .hero-buttons {
@@ -1610,6 +1655,10 @@ section:not(:first-child) {
     .certifications-grid {
         grid-template-columns: 1fr;
     }
+    
+    .hero {
+        padding-top: 100px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1627,6 +1676,38 @@ section:not(:first-child) {
 
     .hero-container {
         padding: 0 15px;
+    }
+    
+    .about-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .about-image {
+        order: 1;
+    }
+    
+    .resume-download {
+        order: 2;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    
+    .about-text {
+        order: 3;
+    }
+    
+    .contact-content {
+        text-align: center;
+    }
+    
+    .contact-info h3 {
+        text-align: center;
+    }
+    
+    .contact-info p {
+        text-align: center;
     }
 
     .theme-toggle {
@@ -1707,7 +1788,8 @@ section:not(:first-child) {
     
     .theme-menu {
         width: 280px;
-        right: -10px;
+        right: -50px;
+        transform: translateX(-50px);
     }
     
     .theme-colors {
@@ -1733,10 +1815,19 @@ section:not(:first-child) {
     }
     
     .theme-menu {
-        width: calc(100vw - 2rem);
-        right: -1rem;
-        max-height: 70vh;
+        position: fixed;
+        top: 70px;
+        right: 1rem;
         left: 1rem;
+        width: auto;
+        max-width: calc(100vw - 2rem);
+        max-height: 70vh;
+        transform: translateY(-10px);
+        z-index: 1002;
+    }
+    
+    .theme-menu.active {
+        transform: translateY(0);
     }
     
     .theme-menu-header {
@@ -1757,7 +1848,7 @@ section:not(:first-child) {
     }
 
     .hero {
-        padding-top: 90px;
+        padding-top: 120px;
     }
     
     .hero-title {
@@ -1767,12 +1858,163 @@ section:not(:first-child) {
     .hero-subtitle {
         font-size: 1.2rem;
     }
-}
-
+    
     .social-link {
         width: 40px;
         height: 40px;
         padding: 10px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    .theme-menu {
+        position: fixed;
+        top: 70px;
+        right: 0.5rem;
+        left: 0.5rem;
+        width: auto;
+        max-width: calc(100vw - 1rem);
+        max-height: 65vh;
+        transform: translateY(-10px);
+        z-index: 1002;
+    }
+    
+    .theme-menu.active {
+        transform: translateY(0);
+    }
+    
+    .navbar {
+        padding: 0 0.5rem;
+    }
+    
+    .hero {
+        padding-top: 130px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .about-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .about-image {
+        order: 1;
+    }
+    
+    .resume-download {
+        order: 2;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    
+    .about-text {
+        order: 3;
+    }
+    
+    .contact-content {
+        text-align: center;
+    }
+    
+    .contact-info h3 {
+        text-align: center;
+    }
+    
+    .contact-info p {
+        text-align: center;
+    }
+}
+
+/* Notification System */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 400px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    z-index: 10000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.notification-message {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.notification-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.notification-success {
+    border-left: 4px solid #10b981;
+}
+
+.notification-error {
+    border-left: 4px solid #ef4444;
+}
+
+.notification-info {
+    border-left: 4px solid var(--accent-primary);
+}
+
+@media (max-width: 480px) {
+    .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .notification-content {
+        padding: 0.75rem 1rem;
+    }
+    
+    .notification-message {
+        font-size: 0.85rem;
     }
 }
 
@@ -1848,9 +2090,6 @@ section:not(:first-child) {
 }
 
 /* Apply animations to elements */
-.profile-card {
-    /* Removed floating animation */
-}
 
 .btn-primary {
     animation: pulse 2s ease-in-out infinite;

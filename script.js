@@ -235,7 +235,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission handling
+// Initialize EmailJS (replace with your actual public key)
+(function() {
+    // Check if EmailJS is available and configured
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
+    }
+})();
+
+// Form submission handling with EmailJS
 const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -249,23 +257,117 @@ if (contactForm) {
         
         // Simple validation
         if (!name || !email || !subject || !message) {
-            alert('Please fill in all fields.');
+            showNotification('Please fill in all fields.', 'error');
             return;
         }
         
-        // Simulate form submission
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showNotification('Please enter a valid email address.', 'error');
+            return;
+        }
+        
+        // Get submit button
         const submitBtn = contactForm.querySelector('.btn-primary');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
-        setTimeout(() => {
-            alert('Thank you for your message! I\'ll get back to you soon.');
+        // Prepare template parameters
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_email: 'hamdynashat125@gmail.com' // Your email
+        };
+        
+        // Check if EmailJS is properly configured
+        if (typeof emailjs === 'undefined' || 
+            'YOUR_PUBLIC_KEY'.includes('YOUR_') || 
+            'YOUR_SERVICE_ID'.includes('YOUR_')) {
+            // Fallback: Open email client with pre-filled message
+            const emailBody = `Hello Hamdy,\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}\n\nBest regards,\n${name}`;
+            const mailtoLink = `mailto:hamdynashat125@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            window.open(mailtoLink);
+            showNotification('Your email client will open with a pre-filled message. Please send it to complete your contact request.', 'info');
             contactForm.reset();
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        }, 2000);
+            return;
+        }
+        
+        // Send email using EmailJS
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
+                contactForm.reset();
+            })
+            .catch(function(error) {
+                console.log('FAILED...', error);
+                // Fallback to mailto if EmailJS fails
+                const emailBody = `Hello Hamdy,\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}\n\nBest regards,\n${name}`;
+                const mailtoLink = `mailto:hamdynashat125@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+                
+                showNotification('Direct email sending failed. Opening your email client as backup...', 'info');
+                setTimeout(() => {
+                    window.open(mailtoLink);
+                }, 1000);
+            })
+            .finally(function() {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
     });
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-message">${message}</span>
+            <button class="notification-close">&times;</button>
+        </div>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+        hideNotification(notification);
+    }, 5000);
+    
+    // Close button functionality
+    notification.querySelector('.notification-close').addEventListener('click', () => {
+        hideNotification(notification);
+    });
+}
+
+function hideNotification(notification) {
+    notification.classList.remove('show');
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+        }
+    }, 300);
 }
 
 // Typing animation for hero title
